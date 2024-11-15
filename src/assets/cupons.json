@@ -1,13 +1,13 @@
 [
     {
         "codigo": "FAE10",
-        "descricao": "Desconto de 10% em compras acima de R$100,00",
+        "descricao": "10% OFF",
         "imagem": "https://escolhaseucosmetico.com.br/wp-content/uploads/2022/04/natura-1.png",
         "preco": 50
     },
     {
         "codigo": "FAE20",
-        "descricao": "20% de desconto em pedidos acima de R$50,00",
+        "descricao": "20% OFF",
         "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRjLWhWpx9PfbzysffLbMA_DK_8jawJAVHbw&s",
         "preco": 100
     },
@@ -19,7 +19,7 @@
     },
     {
         "codigo": "FAEFREE",        
-        "descricao": "Frete grátis para todo o Brasil em compras acima de R$150,00",
+        "descricao": "Frete grátis",
         "imagem": "https://www.cidademarketing.com.br/marketing/wp-content/uploads/2021/07/avon_marca.png",
         "preco": 80
     }

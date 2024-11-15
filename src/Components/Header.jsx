@@ -9,8 +9,8 @@ export default function Header() {
                 <div className="w-full md:w-auto flex justify-center items-center">
                     <img src={logoEcoStore} className="w-10/12 md:h-[110px] md:w-auto" />
                 </div>
-                <nav className="min-w-full md:min-w-0">
-                    <ul className="flex gap-11 text-xl">
+                <nav className="min-w-full md:min-w-0 flex justify-center">
+                    <ul className="my-8 md:my-0 flex gap-11 text-sm md:text-lg flex-wrap">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/Blog">Blog</NavLink></li>
                         <li><NavLink to="/contato">Contato</NavLink></li>

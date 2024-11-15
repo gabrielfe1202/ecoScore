@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion';
 import image1 from '../../assets/image1.png'
 import Lottie from 'react-lottie';
-import animationData from '../../assets/animation.json';
 import imageEco from "../../assets/imagemEco.jpg"
+import animationData from '../../assets/animation.json';
+import animationPlacas from '../../assets/placas.json';
 import energias from "../../assets/energias.json"
 
 function Home() {
@@ -18,11 +19,20 @@ function Home() {
     },
   };
 
+  const optionsPlacas = {
+    loop: true,
+    autoplay: true,
+    animationData: animationPlacas,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
+
   return (
     <>
       <section className='flex flex-row justify-center items-center flex-wrap'>
         <div className='w-10/12 md:w-5/12'>
-          <h1 className='text-white text-[35px] md:text-[40px] font-mono'>Transforme a energia limpa da sua casa em poder para o futuro. Inovação, tecnologia e sustentabilidade para um mundo mais verde e conectado. </h1>          
+          <h1 className='text-white text-[30px] md:text-[40px] font-mono'>Transforme a energia limpa da sua casa em poder para o futuro. Inovação, tecnologia e sustentabilidade para um mundo mais verde e conectado. </h1>          
         </div>
         <div className='w-full max-w-[700px] max-h-[700px]'>
           <Lottie options={options}/>
@@ -61,6 +71,15 @@ function Home() {
         </div>
       </section>
 
+      <section className='flex flex-row justify-center items-center flex-wrap'>
+        <div className='w-10/12 md:w-5/12'>
+          <h1 className='text-white text-4xl font-mono'>Tranforme sua casa com o poder da tecnologia e da inovação</h1>          
+          <p className='text-lg mt-5 text-white'>Adotar soluções sustentáveis, como energia solar e automação inteligente, é uma maneira eficaz de transformar sua casa em um ambiente mais eficiente e ecológico. Além de reduzir o impacto ambiental, essas tecnologias proporcionam economia a longo prazo, com menos gastos com eletricidade e manutenção. Investir em energia sustentável é não apenas uma escolha inteligente, mas também uma contribuição importante para um futuro mais verde e consciente.</p>
+        </div>
+        <div className='w-full max-w-[700px] max-h-[700px]'>
+          <Lottie options={optionsPlacas}/>
+        </div>
+      </section>
     </>
   )
 }

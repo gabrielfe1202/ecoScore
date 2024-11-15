@@ -177,7 +177,7 @@ export default function Account() {
                     <h1 className="text-3xl font-semibold text-center mb-8 font-mono">Cupons para resgatar</h1>
                     <div className='w-full flex flex-col gap-5'>
                         {cupons.map(item => (
-                            <div className='px-8 py-5 border-white border rounded-lg flex justify-between items-center'>
+                            <div className='px-8 py-5 border-white border rounded-lg flex justify-between items-center flex-wrap'>
                                 <div className='flex gap-4 items-center'>
                                     <div className='w-16 h-16 bg-white rounded-full flex justify-center items-center'>
                                         <img src={item.imagem} className='w-8/12' />
