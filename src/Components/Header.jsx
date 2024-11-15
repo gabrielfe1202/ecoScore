@@ -14,6 +14,7 @@ export default function Header() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/Blog">Blog</NavLink></li>
                         <li><NavLink to="/contato">Contato</NavLink></li>
+                        <li><NavLink to="/Account">Minha conta</NavLink></li>
                     </ul>
                 </nav>
             </header>

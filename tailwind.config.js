@@ -12,21 +12,8 @@ export default {
       backgroundImage: {
         'custom-radial-gradient': 'radial-gradient(circle, rgba(82, 130, 41, 1) 10%, rgba(3, 36, 89, 0) 71%)',
       },
-      animation: {
-        'pulse-bg': 'pulseBackground 2s infinite',  // Nome da animação
-      },
-      keyframes: {
-        pulseBackground: {
-          '0%': {
-            transform: 'scale(1)',  // Inicia com tamanho normal
-          },
-          '50%': {
-            transform: 'scale(1.2)',  // Expande o gradiente
-          },
-          '100%': {
-            transform: 'scale(1)',  // Retorna ao tamanho normal
-          },
-        },
+      colors: {
+        'eco-green': '#528229', 
       },
     },
   },

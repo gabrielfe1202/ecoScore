@@ -51,7 +51,7 @@ function Home() {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {energias.map(item => (
-              <div class="energy-card bg-[#528229] p-6 rounded-lg transition-transform transform hover:scale-105 hover:shadow-custom">
+              <div class="energy-card bg-eco-green p-6 rounded-lg transition-transform transform hover:scale-105 hover:shadow-custom">
                 <h3 class="text-2xl font-mono font-bold text-white mb-2">{item.title}</h3>
                 <p class="text-white">{item.description}</p>
               </div>
