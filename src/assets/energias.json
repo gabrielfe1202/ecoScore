@@ -1,0 +1,27 @@
+[
+    {
+      "title": "Energia Solar",
+      "description": "Utiliza a luz solar para gerar eletricidade através de painéis fotovoltaicos, sendo uma das fontes mais acessíveis e limpas de energia."
+    },
+    {
+      "title": "Energia Eólica",
+      "description": "Produzida pelo movimento do ar capturado por turbinas, transformando o vento em eletricidade limpa e renovável."
+    },
+    {
+      "title": "Energia Hidrelétrica",
+      "description": "Gera eletricidade a partir do movimento da água em barragens, sendo uma das fontes mais amplamente usadas no mundo."
+    },
+    {
+      "title": "Biomassa",
+      "description": "Produzida a partir de materiais orgânicos como resíduos agrícolas, madeira e lixo, convertendo-os em energia utilizável."
+    },
+    {
+      "title": "Energia Geotérmica",
+      "description": "Extrai calor do interior da Terra para gerar eletricidade e aquecer ambientes, sendo uma fonte estável e constante."
+    },
+    {
+      "title": "Energia Oceânica",
+      "description": "Aproveita o movimento das ondas e marés para gerar eletricidade, utilizando o vasto potencial energético dos oceanos."
+    }
+  ]
+  
