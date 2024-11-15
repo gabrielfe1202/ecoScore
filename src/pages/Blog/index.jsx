@@ -18,7 +18,7 @@ export default function Blog() {
         fetchContets()
     }, [])
 
-    if(stateLoad) return <Loading />
+    if (stateLoad) return <Loading />
 
     return (
         <>
@@ -27,12 +27,14 @@ export default function Blog() {
 
                     {contents.map(item => (
                         <div className="w-full md:w-3/12 p-5">
-                            <div className="">
-                                <img src="https://placehold.co/400" />
-                            </div>
-                            <div>
-                                <p className="text-white">{item.title}</p>
-                                <Link to={`/Blog/${item.id}`} className="text-white">Ler mais</Link>
+                            <div className="relative">
+                                <div className="w-full">
+                                    <img src={item.icon} className="w-full" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black p-2 h-28  flex justify-end flex-col items-start">
+                                    <p className="text-lg text-white">{item.title}</p>
+                                    <Link to={`/Blog/${item.id}`} className="text-white text-lg px-3 py-1 bg-eco-green rounded-lg">Ler mais</Link>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -40,4 +42,4 @@ export default function Blog() {
             </div>
         </>
     )
-}
+} 7

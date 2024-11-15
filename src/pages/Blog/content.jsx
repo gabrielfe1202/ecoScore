@@ -22,7 +22,7 @@ export default function Content() {
     if (stateLoad) return <Loading />
 
     return (
-        <article className="flex justify-center flex-col items-center pt-24">
+        <article className="flex justify-center flex-col items-center py-24">
             <h1 className="text-4xl text-white">
                 {content.title}
             </h1>
