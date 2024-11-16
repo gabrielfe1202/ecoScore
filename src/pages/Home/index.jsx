@@ -5,7 +5,9 @@ import Lottie from 'react-lottie';
 import imageEco from "../../assets/imagemEco.jpg"
 import animationData from '../../assets/animation.json';
 import animationPlacas from '../../assets/placas.json';
+import animationDash from '../../assets/dashboard.json';
 import energias from "../../assets/energias.json"
+
 
 function Home() {
   const [count, setCount] = useState(0)
@@ -28,14 +30,23 @@ function Home() {
     },
   };
 
+  const optionsDash = {
+    loop: true,
+    autoplay: true,
+    animationData: animationDash,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
+
   return (
     <>
       <section className='flex flex-row justify-center items-center flex-wrap'>
         <div className='w-10/12 md:w-5/12'>
-          <h1 className='text-white text-[30px] md:text-[40px] font-mono'>Transforme a energia limpa da sua casa em poder para o futuro. Inovação, tecnologia e sustentabilidade para um mundo mais verde e conectado. </h1>          
+          <h1 className='text-white text-[30px] md:text-[40px] font-mono'>Transforme a energia limpa da sua casa em poder para o futuro. Inovação, tecnologia e sustentabilidade para um mundo mais verde e conectado. </h1>
         </div>
         <div className='w-full max-w-[700px] max-h-[700px]'>
-          <Lottie options={options}/>
+          <Lottie options={options} />
         </div>
       </section>
 
@@ -73,11 +84,24 @@ function Home() {
 
       <section className='flex flex-row justify-center items-center flex-wrap'>
         <div className='w-10/12 md:w-5/12'>
-          <h1 className='text-white text-4xl font-mono'>Tranforme sua casa com o poder da tecnologia e da inovação</h1>          
+          <h1 className='text-white text-4xl font-mono'>Tranforme sua casa com o poder da tecnologia e da inovação</h1>
           <p className='text-lg mt-5 text-white'>Adotar soluções sustentáveis, como energia solar e automação inteligente, é uma maneira eficaz de transformar sua casa em um ambiente mais eficiente e ecológico. Além de reduzir o impacto ambiental, essas tecnologias proporcionam economia a longo prazo, com menos gastos com eletricidade e manutenção. Investir em energia sustentável é não apenas uma escolha inteligente, mas também uma contribuição importante para um futuro mais verde e consciente.</p>
         </div>
         <div className='w-full max-w-[700px] max-h-[700px]'>
-          <Lottie options={optionsPlacas}/>
+          <Lottie options={optionsPlacas} />
+        </div>
+      </section>
+
+      <section className='flex flex-row justify-center items-center flex-wrap'>
+        <div className='w-full max-w-[700px] max-h-[700px]'>
+          <Lottie options={optionsDash} />
+        </div>
+        <div className='w-10/12 md:w-5/12'>
+          <h1 className='text-white text-4xl font-mono'>Tenha acesso a um Dashboard com todos os seus dados de consumo de energia</h1>
+          <p className='text-lg mt-5 text-white'>
+
+            Tenha acesso a um Dashboard completo que reúne todos os seus dados de consumo de energia, permitindo controle, economia e planejamento eficiente. Com uma interface intuitiva, você monitora em tempo real o uso energético, identifica oportunidades de redução de custos e contribui para um consumo mais consciente. Essa ferramenta moderna oferece insights valiosos para gerenciar sua energia de forma sustentável e prática, promovendo economia e uma gestão mais eficiente para sua casa ou empresa.
+          </p>
         </div>
       </section>
     </>
