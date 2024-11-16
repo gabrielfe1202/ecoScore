@@ -6,7 +6,7 @@ import Login from './Login';
 import Loading from '../../Components/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Modal = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null; // Se o modal não estiver aberto, não renderiza nada
@@ -58,6 +58,7 @@ export default function Account() {
     const [modalCupom, setModalCupom] = useState(false);
     const [modalErro, setModalErro] = useState(false)
     const [cupomCodigo, setCupomCodigo] = useState('')
+    const navigate = useNavigate()
 
     const toggleModalCupom = () => {
         setModalCupom(!modalCupom);
@@ -88,7 +89,7 @@ export default function Account() {
 
     const handleLogout = () => {
         localStorage.removeItem("ecoScoreUserId")
-        window.location.reload()
+        navigate(0)
     }
 
     const handleCupom = async (preco, codigo) => {

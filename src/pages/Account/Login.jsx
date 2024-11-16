@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const validEmail = (email) => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -15,6 +16,7 @@ function Login() {
     const [cadastroEmail, setCadastroEmail] = useState('')
     const [cadastroSenha, setCadastroSenha] = useState('')
     const [cadastroConfirmaSenha, setCadastroConfirmaSenha] = useState('')
+    const navigate = useNavigate()
 
     const handleToggle = () => {
         setIsLogin(!Login);
@@ -54,7 +56,7 @@ function Login() {
             .then(data => {
                 console.log(data)
                 localStorage.setItem("ecoScoreUserId", data.id)
-                window.location.reload()
+                navigate(0)
             }).catch(error => {
                 console.error(error)
             })
@@ -67,7 +69,7 @@ function Login() {
                 const user = data.find(x => x.email == loginEmail && x.password == loginPassword)
                 if (user != undefined) {
                     localStorage.setItem("ecoScoreUserId", user.id)
-                    window.location.reload()
+                    navigate(0)
                 } else {
                     setLoginErro('Usuario ou senha incorretos')
                 }
