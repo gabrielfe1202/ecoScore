@@ -20,11 +20,40 @@ const Modal = ({ isOpen, onClose, children }) => {
     );
 };
 
+const dataEnergia = [
+    { mes: "Janeiro", valor: 30 },
+    { mes: "Fevereiro", valor: 25 },
+    { mes: "Março", valor: 40 },
+    { mes: "Abril", valor: 35 },
+    { mes: "Maio", valor: 50 },
+    { mes: "Junho", valor: 45 },
+    { mes: "Julho", valor: 60 },
+    { mes: "Agosto", valor: 55 },
+    { mes: "Setembro", valor: 70 },
+    { mes: "Outubro", valor: 65 },
+    { mes: "Novembro", valor: 80 },
+    { mes: "Dezembro", valor: 90 }
+];
+
+const dataPontos = [
+    { mes: "Janeiro", valor: 24 },
+    { mes: "Fevereiro", valor: 20 },
+    { mes: "Março", valor: 35 },
+    { mes: "Abril", valor: 30 },
+    { mes: "Maio", valor: 48 },
+    { mes: "Junho", valor: 41 },
+    { mes: "Julho", valor: 56 },
+    { mes: "Agosto", valor: 52 },
+    { mes: "Setembro", valor: 60 },
+    { mes: "Outubro", valor: 61 },
+    { mes: "Novembro", valor: 70 },
+    { mes: "Dezembro", valor: 88 }
+];
+
+
 export default function Account() {
     const [stateLoad, setStateLoad] = useState(false)
     const [userData, setUserData] = useState(null);
-    const [energyData, setEnergyData] = useState([]);
-    const [groupBy, setGroupBy] = useState('month');
     const [logado, setLogaado] = useState(false)
     const [modalCupom, setModalCupom] = useState(false);
     const [modalErro, setModalErro] = useState(false)
@@ -49,33 +78,13 @@ export default function Account() {
     }
 
     useEffect(() => {
-        setUserData({
-            name: 'João Silva',
-            points: 1200,
-        });
-
-        setEnergyData([
-            { date: '2024-01-01', energy: 25 },
-            { date: '2024-01-15', energy: 30 },
-            { date: '2024-02-01', energy: 22 },
-            { date: '2024-02-20', energy: 28 },
-            { date: '2024-03-10', energy: 20 },
-            { date: '2024-03-18', energy: 27 },
-            { date: '2025-01-02', energy: 18 },
-            { date: '2025-05-18', energy: 35 },
-            { date: '2025-11-11', energy: 40 },
-        ]);
-
+       
         const userId = localStorage.getItem("ecoScoreUserId")
         if (userId != null & userId != undefined) {
             setLogaado(true)
             fetchhUserData()
         }
     }, []);
-
-    const handleGroupChange = (event) => {
-        setGroupBy(event.target.value);
-    };
 
     const handleLogout = () => {
         localStorage.removeItem("ecoScoreUserId")
@@ -136,40 +145,16 @@ export default function Account() {
                 <div className="w-full max-w-3xl p-6 bg-gray-800 rounded-lg shadow-lg flex-row flex-wrap justify-between items-center hidden md:flex">
                     <h1 className="text-3xl font-semibold text-center mb-8 font-mono">Pontos gerados</h1>
 
-                    <div className="mb-6">
-                        <select
-                            id="groupBy"
-                            value={groupBy}
-                            onChange={handleGroupChange}
-                            className="ml-2 p-2 bg-gray-700 text-white rounded-md"
-                        >
-                            <option value="month">Por mês</option>
-                            <option value="year">Por ano</option>
-                        </select>
-                    </div>
-
                     <div className='w-full flex justify-center items-center'>
-                        <EnergyChart data={energyData} groupBy={groupBy} />
+                        <EnergyChart data={dataPontos} titulo="Pontos" cor="#528229"/>
                     </div>
                 </div>
 
                 <div className="w-full max-w-3xl p-6 bg-gray-800 rounded-lg shadow-lg flex-row flex-wrap justify-between items-center hidden md:flex">
-                    <h1 className="text-3xl font-semibold text-center mb-8 font-mono">Consumo de energia</h1>
-
-                    <div className="mb-6">
-                        <select
-                            id="groupBy"
-                            value={groupBy}
-                            onChange={handleGroupChange}
-                            className="ml-2 p-2 bg-gray-700 text-white rounded-md"
-                        >
-                            <option value="month">Por mês</option>
-                            <option value="year">Por ano</option>
-                        </select>
-                    </div>
+                    <h1 className="text-3xl font-semibold text-center mb-8 font-mono">Energia limpa gerada</h1>
 
                     <div className='w-full flex justify-center items-center'>
-                        <EnergyChart data={energyData} groupBy={groupBy} />
+                        <EnergyChart data={dataEnergia} titulo="Geração" cor="#ff5733"/>
                     </div>
                 </div>
 

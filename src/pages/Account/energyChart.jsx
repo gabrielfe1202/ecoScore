@@ -2,45 +2,18 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const EnergyChart = ({ data, groupBy }) => {
-    // Função para agrupar os dados por mês ou ano
-    const groupData = (data, groupBy) => {
-        return data.reduce((acc, entry) => {
-            const date = new Date(entry.date);
-            let key;
-
-            if (groupBy === 'month') {
-                // Agrupar por mês (abreviado)
-                key = date.toLocaleString('default', { month: 'short' });
-            } else if (groupBy === 'year') {
-                // Agrupar por ano
-                key = date.getFullYear().toString();
-            }
-
-            if (!acc[key]) {
-                acc[key] = 0;
-            }
-
-            acc[key] += entry.energy;
-            return acc;
-        }, {});
-    };
-
-    // Agrupando os dados conforme a propriedade `groupBy`
-    const groupedData = groupData(data, groupBy);
-
-    // Organizando as categorias (eixo X) e os dados de consumo de energia (eixo Y)
-    const categories = Object.keys(groupedData);
-    const energyConsumption = Object.values(groupedData);
-
+const EnergyChart = ({ data, titulo, cor }) => {
+    
+    const categories = data.map(item => item.mes); 
+    const values = data.map(item => item.valor);    
     const chartOptions = {
         chart: {
-            type: 'line',
+            type: 'line', 
             backgroundColor: 'transparent',
-            zoomType: 'x',
+            zoomType: 'x', 
         },
         title: {
-            text: ``,
+            text: '',
             style: {
                 color: '#fff',
                 fontWeight: 'bold',
@@ -48,9 +21,9 @@ const EnergyChart = ({ data, groupBy }) => {
             },
         },
         xAxis: {
-            categories: categories,
+            categories: categories,  
             title: {
-                text: groupBy === 'month' ? 'Meses' : 'Anos',
+                text: 'Meses',
                 style: {
                     color: '#fff',
                 },
@@ -63,7 +36,7 @@ const EnergyChart = ({ data, groupBy }) => {
         },
         yAxis: {
             title: {
-                text: 'Consumo (kWh)',
+                text: titulo,
                 style: {
                     color: '#fff',
                 },
@@ -76,7 +49,7 @@ const EnergyChart = ({ data, groupBy }) => {
         },
         tooltip: {
             shared: true,
-            valueSuffix: ' kWh',
+            valueSuffix: ' pontos',
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
             borderColor: '#444',
             style: {
@@ -85,14 +58,14 @@ const EnergyChart = ({ data, groupBy }) => {
         },
         series: [
             {
-                name: 'Consumo de Energia',
-                data: energyConsumption,
-                color: '#ff5733',
+                name: 'Pontos Ganhos',
+                data: values,  
+                color: cor,
                 lineWidth: 3,
                 marker: {
                     enabled: true,
                     radius: 4,
-                    fillColor: '#ff5733',
+                    fillColor: cor,
                     lineWidth: 2,
                     lineColor: '#fff',
                 },
@@ -113,7 +86,7 @@ const EnergyChart = ({ data, groupBy }) => {
     };
 
     return (
-        <div className="">
+        <div className='w-full'>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </div>
     );
